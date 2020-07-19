@@ -27,7 +27,7 @@ def get_diff(phone1, phone2):
         'a': (10.9, 10.5),
         'ya': (10.45, 10.25), 'yae': (10.3, 10.15), 'yeo': (10.3, 10.375), 'ye': (10.15, 10.075),
         'wae': (10.45, 10.65), 'yo': (10.15, 10.4), 'wo': (10.3, 10.775), 'we': (10.15, 10.525),
-        'yu': (10.0, 10.45), 'ui': (10.0, 10.25)
+        'yu': (10.0, 10.45), 'ui': (10.0, 10.25), 'wa': (10.45, 10.65)
     }
 
     v1 = table[phone1]
@@ -36,7 +36,8 @@ def get_diff(phone1, phone2):
     x = get_diff_each(v1[0], v2[0])
     y = get_diff_each(v1[1], v2[1])
 
-    return math.sqrt((x+y) / 2.0)
+    return 0.0
+    # return math.sqrt((x+y) / 2.0)
 
 def lcs_length(text1, text2):
     text1_len = len(text1) - 1
@@ -60,7 +61,7 @@ def calc_score(res, ans, final):
     text2 = ans_file.readlines()[0].strip().split(' ')
 
     lcs = lcs_length(text1, text2)
-    total = len(text2)
+    total = max(len(text2), len(text1))
 
     score = lcs / total * 100.0
     print(score)

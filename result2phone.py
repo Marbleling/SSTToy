@@ -7,7 +7,6 @@ def parse_text(src, dst):
     seq = l[1].split(' ')
     inter_seq = [el for el in seq if el != '' and el != 'SIL' and el != '\n'][1:]
     final_seq = [el.split('_')[0] for el in inter_seq]
-    print(final_seq)
 
     input_file.close()
 
